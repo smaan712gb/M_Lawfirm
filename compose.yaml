@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3333
+      DATA_DIR: /app/.data
+    volumes:
+      - mlaw-data:/app/.data
+    expose:
+      - '3333'
+    networks: [mlaw]
+  caddy:
+    image: caddy:2.10.2-alpine
+    restart: unless-stopped
+    environment:
+      MLAW_DOMAIN: ${MLAW_DOMAIN:?Set MLAW_DOMAIN in .env}
+    ports: ['80:80', '443:443']
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks: [mlaw]
+networks:
+  mlaw:
+volumes:
+  mlaw-data:
+  caddy-data:
+  caddy-config:

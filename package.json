@@ -1,0 +1,6 @@
+{
+ "name":"mlaw-connected-prototype","version":"0.1.0","private":true,"type":"module",
+ "description":"Portable M Law landing page and connected legal operations prototype",
+ "engines":{"node":">=24.15.0"},
+ "scripts":{"start":"node --env-file-if-exists=.env server.mjs","check":"node --check server.mjs && node --check dist/app.js && node --check mcp-server.mjs","test":"node --test tests/*.test.mjs","mcp":"node mcp-server.mjs","collect":"node --env-file-if-exists=.env scripts/collect-law.mjs","ontology:export":"node scripts/export-ontology.mjs"}
+}

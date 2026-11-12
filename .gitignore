@@ -1,0 +1,13 @@
+node_modules/
+.tools/
+.research/
+.data/
+.env
+.env.*
+!.env.example
+exports/
+*.tar.gz
+*.tgz
+*.sqlite*
+evidence/raw/
+test-results/

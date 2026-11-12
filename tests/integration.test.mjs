@@ -1,0 +1,26 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {spawn} from 'node:child_process';
+import {mkdtemp,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {once} from 'node:events';
+const dir=await mkdtemp(join(tmpdir(),'mlaw-test-')),port=34879,base='http://127.0.0.1:'+port;
+const proc=spawn(process.execPath,['server.mjs'],{cwd:new URL('..',import.meta.url),env:{...process.env,PORT:String(port),HOST:'127.0.0.1',DATA_DIR:dir,WORKSPACE_PASSWORD:'',MODEL_BASE_URL:'',LAW_FEED_URLS:''},stdio:['ignore','pipe','pipe']});
+await Promise.race([once(proc.stdout,'data'),new Promise((_,reject)=>setTimeout(()=>reject(Error('Server start timeout')),10000).unref())]);
+test('connected server workflow, persistence, conflict and boundary checks',async()=>{try{
+ const health=await fetch(base+'/api/health').then(r=>r.json());assert.equal(health.storage,'sqlite');assert.equal(health.modelConfigured,false);
+ let state=await fetch(base+'/api/state').then(r=>r.json());assert.equal(state.matters.length,5);const original=structuredClone(state);
+ state.matters.push({...state.matters[0],id:'ML-TEST',name:'Test fictional client'});let saved=await fetch(base+'/api/state',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(state)});assert.equal(saved.status,200);const next=await saved.json();assert.equal(next._revision,1);assert.equal(next.matters.length,6);
+ const conflict=await fetch(base+'/api/state',{method:'PUT',body:JSON.stringify(original)});assert.equal(conflict.status,409);
+ next.expenses.push({amount:-1});const invalid=await fetch(base+'/api/state',{method:'PUT',body:JSON.stringify(next)});assert.equal(invalid.status,400);
+ const csrf=await fetch(base+'/api/state',{method:'PUT',headers:{Origin:'https://untrusted.example'},body:JSON.stringify(next)});assert.equal(csrf.status,403);
+ const badFile=await fetch(base+'/api/files/not-a-uuid',{method:'PUT',body:'test'});assert.equal(badFile.status,400);
+ const upload=await fetch(base+'/api/files/11111111-1111-1111-1111-111111111111',{method:'PUT',body:'fictional source'});assert.equal(upload.status,200);assert.equal(await fetch(base+'/api/files/11111111-1111-1111-1111-111111111111').then(r=>r.text()),'fictional source');
+ const disabled=await fetch(base+'/api/chat',{method:'POST',body:JSON.stringify({messages:[]})});assert.equal(disabled.status,503);
+ const feeds=await fetch(base+'/api/research/refresh',{method:'POST'}).then(r=>r.json());assert.equal(feeds.count,0);assert.match(feeds.message,/No official feeds/);
+ const page=await fetch(base+'/');assert.equal(page.status,200);assert.match(await page.text(),/Life changed/);assert.match(page.headers.get('content-security-policy'),/frame-ancestors 'none'/);
+ const video=await fetch(base+'/assets/city.mp4',{headers:{Range:'bytes=0-99'}});assert.equal(video.status,206);assert.equal((await video.arrayBuffer()).byteLength,100);
+ const secret=await fetch(base+'/.env');assert.equal(secret.status,404);
+ }finally{proc.kill();await once(proc,'exit');await rm(dir,{recursive:true,force:true})}});
+test('read-only MCP initializes and inspects linked records',async()=>{const mcpDir=await mkdtemp(join(tmpdir(),'mlaw-mcp-'));const p=spawn(process.execPath,['mcp-server.mjs'],{cwd:new URL('..',import.meta.url),env:{...process.env,DATA_DIR:mcpDir},stdio:['pipe','pipe','pipe']});let output='';p.stdout.on('data',d=>output+=d);for(const q of [{jsonrpc:'2.0',id:1,method:'initialize',params:{}},{jsonrpc:'2.0',id:2,method:'tools/list'},{jsonrpc:'2.0',id:3,method:'tools/call',params:{name:'get_matter',arguments:{matter_id:'ML-2601'}}}])p.stdin.write(JSON.stringify(q)+'\n');p.stdin.end();await once(p,'exit');try{const records=output.trim().split('\n').map(l=>JSON.parse(l));assert.equal(records[0].result.serverInfo.name,'mlaw-prototype-readonly');assert.equal(records[1].result.tools.length,4);const m=JSON.parse(records[2].result.content[0].text);assert.equal(m.matter.id,'ML-2601');assert.equal(m.tasks.length,1)}finally{await rm(mcpDir,{recursive:true,force:true})}});

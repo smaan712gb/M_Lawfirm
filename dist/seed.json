@@ -1,0 +1,19 @@
+{
+ "matters":[
+  {"id":"ML-2601","name":"Elena Rivera","type":"Vehicle accidents","stage":"Discovery","owner":"Adnan Munawar","language":"Español","email":"elena@example.test","phone":"212-555-0101","incident":"2026-08-14","summary":"Fictional rear-end collision in Queens. Medical records requested; liability review pending.","provider":"Queens Medical Center","insurer":"Example Mutual","created":"2026-10-20"},
+  {"id":"ML-2602","name":"Omar Khan","type":"Construction accidents","stage":"Investigation","owner":"Junior attorney","language":"اردو","email":"omar@example.test","phone":"212-555-0102","incident":"2026-09-03","summary":"Fictional construction-site fall. Awaiting incident report and witness details.","provider":"Metro Orthopedics","insurer":"Example Casualty","created":"2026-10-24"},
+  {"id":"ML-2603","name":"Daniel Brooks","type":"Premises liability","stage":"Demand","owner":"Adnan Munawar","language":"English","email":"daniel@example.test","phone":"212-555-0103","incident":"2026-07-22","summary":"Fictional unsafe stairway incident. Treatment chronology ready for review.","provider":"Hudson Rehabilitation","insurer":"Example Mutual","created":"2026-10-12"},
+  {"id":"ML-2604","name":"Sofia Alvarez","type":"Vehicle accidents","stage":"Intake","owner":"Unassigned","language":"Español","email":"sofia@example.test","phone":"212-555-0104","incident":"2026-11-05","summary":"Fictional bicycle collision. Conflict check and initial consultation pending.","provider":"Not recorded","insurer":"Not recorded","created":"2026-11-10"},
+  {"id":"ML-2605","name":"Aisha Rahman","type":"Other personal injury","stage":"Investigation","owner":"Junior attorney","language":"English","email":"aisha@example.test","phone":"212-555-0105","incident":"2026-10-11","summary":"Fictional injury report. Initial evidence and treatment records needed.","provider":"Metro Orthopedics","insurer":"Example Casualty","created":"2026-10-30"}
+ ],
+ "tasks":[
+  {"id":"t1","title":"Review Rivera medical record request","matter":"ML-2601","owner":"Junior attorney","date":"2026-11-13","done":false},
+  {"id":"t2","title":"Confirm Khan incident report details","matter":"ML-2602","owner":"Junior attorney","date":"2026-11-16","done":false},
+  {"id":"t3","title":"Review Brooks demand outline","matter":"ML-2603","owner":"Adnan Munawar","date":"2026-11-17","done":false},
+  {"id":"t4","title":"Run Alvarez conflict check","matter":"ML-2604","owner":"Adnan Munawar","date":"2026-11-12","done":false}
+ ],
+ "documents":[{"id":"d1","matter":"ML-2603","name":"Demand outline — Brooks","type":"Draft","text":"DRAFT — ATTORNEY REVIEW REQUIRED\n\nMatter ML-2603: Daniel Brooks\n\nLiability theory: unsafe stairway, to be substantiated.\nMedical chronology: source records not supplied.\nDamages: not calculated.\n\nOutstanding: records, bills, policy information, liens, and attorney analysis.\n\nThis outline is not ready for filing or service.","created":"2026-11-10"}],
+ "expenses":[{"id":"e1","matter":"ML-2601","description":"Illustrative medical record fee","amount":45,"date":"2026-11-04"},{"id":"e2","matter":"ML-2602","description":"Illustrative investigation expense","amount":175,"date":"2026-11-07"}],
+ "messages":[{"id":"msg1","matter":"ML-2601","channel":"Portal draft","text":"Your team is reviewing the medical records request. We will contact you when there is a confirmed update.","status":"Pending review","date":"2026-11-10"}],
+ "jobs":[],"updates":[],"audit":[],"time":[],"files":[]
+}
