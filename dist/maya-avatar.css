@@ -1,0 +1,29 @@
+maya-avatar{position:relative;display:block;width:100%;max-width:310px;aspect-ratio:1/1;overflow:hidden;border-radius:12px;background:#c7c3ad;isolation:isolate;box-shadow:0 12px 40px #0b211e24;flex-shrink:0;text-align:left}
+.maya-avatar-frame{position:absolute;inset:0;transform-origin:50% 65%;animation:mayaBreathe 8.6s ease-in-out infinite}
+.maya-avatar-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.maya-avatar-frame .maya-avatar-blink{opacity:0;animation:mayaBlink 14s linear infinite;mask-image:radial-gradient(ellipse 6.2% 3.8% at 44% 29.6%,#000 60%,transparent 100%),radial-gradient(ellipse 6.2% 3.8% at 58.4% 29.6%,#000 60%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 6.2% 3.8% at 44% 29.6%,#000 60%,transparent 100%),radial-gradient(ellipse 6.2% 3.8% at 58.4% 29.6%,#000 60%,transparent 100%)}
+.maya-avatar-caption{position:absolute;bottom:0;left:0;right:0;padding:28px 15px 13px;background:linear-gradient(transparent,#112b25dd);color:#fff;line-height:1.5;pointer-events:none}
+.maya-avatar-activity{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:500}
+.maya-avatar-caption small{display:block;margin-top:3px;font-size:9px;color:#e2e8df;letter-spacing:.2px}
+.maya-avatar-signal{display:flex;align-items:center;gap:2px;height:14px}
+.maya-avatar-signal i{width:2px;height:4px;background:#d9d5b6;border-radius:2px}
+maya-avatar[state="speaking"] .maya-avatar-signal i{animation:mayaSound .65s ease-in-out infinite alternate}
+maya-avatar[state="listening"] .maya-avatar-signal i{animation:mayaSound 1.1s ease-in-out infinite alternate;background:#d6e6c0}
+maya-avatar .maya-avatar-signal i:nth-child(2){animation-delay:.17s}maya-avatar .maya-avatar-signal i:nth-child(3){animation-delay:.32s}maya-avatar .maya-avatar-signal i:nth-child(4){animation-delay:.08s}
+.maya-motion{position:absolute;top:10px;right:10px;border:1px solid #ffffff70;background:#19392fa6;backdrop-filter:blur(8px);color:#fff;width:32px;height:32px;border-radius:50%;font-size:14px;display:grid;place-items:center;padding:0}
+.maya-motion:hover{background:#19392fe6}.maya-motion:disabled{cursor:default}
+maya-avatar[motion-paused] .maya-avatar-frame{animation:none;transform:none}
+maya-avatar[motion-paused] .maya-avatar-blink{animation:none;opacity:0}
+maya-avatar[motion-paused] .maya-avatar-signal i{animation:none}
+@keyframes mayaBreathe{0%,100%{transform:scale(1.018) rotate(-.12deg)}50%{transform:scale(1.027) translateY(-.5px) rotate(.12deg)}}
+@keyframes mayaBlink{0%,18.2%,19.5%,48.2%,49.5%,52.8%,54.1%,85%,86.3%,100%{opacity:0}18.8%,48.8%,53.4%,85.6%{opacity:1}}
+@keyframes mayaSound{from{height:3px}to{height:13px}}
+.concierge-preview maya-avatar{margin:0 auto 24px;max-width:290px}
+.reception-hero maya-avatar{width:240px}
+.maya-profile .maya-portrait{width:100%;max-width:240px;margin:0}
+.maya-profile .maya-disclosure{font-size:10px;color:#cbd7c4}
+.maya-profile .maya-wave i{animation:none;height:4px;opacity:.65}
+.maya-profile[data-state="speaking"] .maya-wave i{animation:mayaVoice .8s ease-in-out infinite alternate;animation-delay:calc(var(--n)*.12s);height:calc(6px + var(--n)*3px)}
+@media(max-width:650px){.reception-hero{flex-direction:column;align-items:start}.reception-hero maya-avatar{width:100%;max-width:260px;align-self:center}.maya-profile{grid-template-columns:112px 1fr;gap:0 15px}.maya-profile .maya-portrait{width:112px;grid-row:1/5}.maya-profile .maya-disclosure{display:block;grid-column:1/-1;text-align:center;font-size:9px;padding-top:9px}.maya-profile .maya-avatar-caption{padding:18px 7px 6px}.maya-profile .maya-avatar-activity{font-size:8px;gap:4px}.maya-profile .maya-avatar-caption small{display:none}.maya-profile .maya-motion{width:27px;height:27px;top:5px;right:5px}.maya-profile .maya-avatar-signal{height:10px}.maya-profile h2{font-size:30px!important}.maya-profile .eyebrow{font-size:6px}.maya-profile .button{font-size:9px}}
+@media(min-width:651px) and (max-height:760px){.maya-profile .maya-portrait{max-width:180px}.maya-profile .maya-disclosure{font-size:9px}}
+@media(prefers-reduced-motion:reduce){maya-avatar .maya-avatar-frame,maya-avatar .maya-avatar-blink,maya-avatar .maya-avatar-signal i{animation:none!important}.maya-avatar-blink{opacity:0!important}}
