@@ -50,12 +50,14 @@ The private Sites preview serves `dist/` and uses browser-local storage. It has 
 | Intelligence | Explicit graph from entered records, relational staging export | NVIDIA deployment, ingestion, semantic compilation and certification |
 | Workflows | Linked review tasks; installed Hermes runtime tested against reception tools | Live model configuration, durable execution, retry and exception handling |
 | Legal updates | Allowlisted feed-snapshot collector, hash-based changes, configurable interval | Official feed selection, article parsing, relevance and legal-change review |
-| MCP | Four read-only workspace tools plus three functional reception tools; Hermes discovery and callback tested | Per-user identity, scopes and production authorization |
-| Voice | Local Kokoro female en/es/hi samples, faster-whisper, browser voice turns, Asterisk test adapter | Carrier connection, real calls, full-duplex interruptions, native-speaker QA and escalation |
+| MCP | Five read-only workspace tools plus three functional reception tools; Hermes discovery and callback tested | Per-user identity, scopes and production authorization |
+| Voice | Eighty fixed spoken responses in English, Spanish, Urdu, Hindi and Arabic; synchronized portrait clips; local transcription with browser interruption detection; telephone test adapter | Carrier connection, physical microphone/echo acceptance, real calls, native-speaker QA and escalation |
 
 No action sends messages, signs documents, accepts representation, files with a court, moves money or changes legal deadlines. No claim is made that drafted documents are accurate or ready for filing.
 
 ## Model setup
+
+For this Windows meeting build, run **Connect Drafting.cmd** and enter the key in the masked field on the private local browser page. It verifies access at the official endpoint and stores only a Windows-user-encrypted credential in ignored `.local-secrets/`. Restart **Start Meeting.cmd** to enable the attorney copilot. The key is not stored in browser assets, backups or Git. A different computer or Windows account needs its own setup.
 
 Copy `.env.example` to `.env`. For optional DeepSeek:
 
@@ -63,9 +65,10 @@ Copy `.env.example` to `.env`. For optional DeepSeek:
 MODEL_BASE_URL=https://api.deepseek.com
 MODEL_NAME=deepseek-flash
 MODEL_API_KEY=your_private_key
+MODEL_THINKING=disabled
 ```
 
-The documented API alias `deepseek-flash` currently serves DeepSeek V4.1 Flash. Verify it before deployment. Keys stay on the server. Model API use is metered; no key or paid account was provisioned. No silent provider fallback is used. The legacy model chat endpoint sends the conversation only; Maya’s structured reception does not require a model; the attorney copilot sends the selected matter plus linked draft text and file metadata. Enable remote inference only after the firm approves its data handling.
+The [documented API alias](https://api-docs.deepseek.com/) `deepseek-flash` serves DeepSeek V4.1 Flash (verified November 12, 2026). Keys stay on the server. Model API use is metered; no paid account was provisioned. The meeting launcher disables thinking mode for responsive short drafts; the server accepts explicit `MODEL_THINKING=enabled` for configured deployments. Truncated or empty responses fail visibly, and provider errors cannot echo credentials. No silent provider fallback is used. The legacy model chat endpoint sends the conversation only; Maya’s structured reception does not require a model; the attorney copilot sends the selected matter plus linked draft text and file metadata. Enable remote inference on real records only after the firm approves its data handling.
 
 For local inference, install a suitable model in Ollama, set `MODEL_BASE_URL=http://127.0.0.1:11434/v1`, set its installed model name, and set `MODEL_LOCAL=true`. Local model hardware and language quality must be assessed.
 

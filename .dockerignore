@@ -15,3 +15,12 @@ node_modules
 .meeting-data
 .pilot-data
 *.mlawbackup
+.avatar-venv/
+.avatar-cache/
+.speech-cache/
+.talking-build/
+.conversation-venv/
+.conversation-cache/
+.voice-design-venv/
+.local-secrets/
+tmp/

@@ -1,0 +1,27 @@
+{
+  "syntheticAudioOnly": true,
+  "physicalMicrophoneTested": false,
+  "results": [
+    {
+      "language": "en",
+      "transcript": " Hi, you've reached M law firm. I'm Maya. How can I help?",
+      "milliseconds": 2007
+    },
+    {
+      "language": "ur",
+      "transcript": " اسلام و علیکم املو فرم سے مایا بات کر رہی ہوں  بتائیے میں آپ کی کیا مدت کر ستی ہوں",
+      "milliseconds": 2060
+    },
+    {
+      "language": "hi",
+      "transcript": " नमस्ते, आम लो फर्म, मैं माया बोर रही हूँ  बताये, मैं आपकी क्या मदद कर सत्ती हूँ",
+      "milliseconds": 2455
+    },
+    {
+      "language": "ar",
+      "transcript": " مرحبا أنا معي من مكتب ام لولي مهامات كيف يمكنني مساعدتك اليوم",
+      "milliseconds": 1870
+    }
+  ],
+  "unsupportedLanguageStatus": 422
+}

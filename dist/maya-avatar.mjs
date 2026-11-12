@@ -1,11 +1,16 @@
 // A locally rendered portrait. No camera, external avatar service or tracking.
-const labels={idle:'Here to help',listening:'Listening to you',thinking:'One moment…',speaking:'Speaking'};
 class MayaAvatar extends HTMLElement {
- static observedAttributes=['state'];
+ static observedAttributes=['state','expression','talking'];
  connectedCallback(){
   if(this.initialized)return;
   this.initialized=true;
-  this.innerHTML=`<div class="maya-avatar-frame" role="img" aria-label="Maya, M Law’s virtual receptionist"><img class="maya-avatar-base" src="/assets/maya-portrait.png" width="1254" height="1254" alt="" decoding="async"><img class="maya-avatar-blink" src="/assets/maya-blink.png" width="1254" height="1254" alt="" aria-hidden="true" decoding="async"></div><div class="maya-avatar-caption"><span class="maya-avatar-activity"><span class="maya-avatar-signal" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-avatar-state>Here to help</span></span><small>Maya · Virtual receptionist</small></div><button class="maya-motion" type="button" aria-label="Pause Maya animation" aria-pressed="false" title="Pause Maya animation">Ⅱ</button>`;
+  this.innerHTML=`<div class="maya-avatar-frame" role="img" aria-label="Maya, M Law’s virtual receptionist"><img class="maya-avatar-base" src="/assets/maya-portrait.png" width="1254" height="1254" alt="" decoding="async"><video class="maya-avatar-idle" playsinline muted loop preload="none" aria-hidden="true"></video><video class="maya-avatar-video" playsinline preload="none" aria-label="Maya speaking" hidden></video><img class="maya-avatar-blink" src="/assets/maya-blink.png" width="1254" height="1254" alt="" aria-hidden="true" decoding="async"></div><button class="maya-motion" type="button" aria-label="Pause Maya animation" aria-pressed="false" title="Pause Maya animation">Ⅱ</button>`;
+  this.idle=this.querySelector('.maya-avatar-idle');this.idle.muted=true;
+  this.idle.onplaying=()=>this.setAttribute('idle-ready','');
+  this.idle.onended=()=>{if(this.idle.dataset.expression==='amused')this.setAttribute('expression','warm')};
+  this.idle.onerror=()=>this.removeAttribute('idle-ready');
+  this.visible=false;
+  this.visibility=new IntersectionObserver(entries=>{this.visible=entries[0].isIntersecting;this.updatePresence()});this.visibility.observe(this);
   this.reduced=matchMedia('(prefers-reduced-motion: reduce)');
   try{this.userPaused=localStorage.getItem('mlaw-maya-motion')==='paused'}catch{this.userPaused=false}
   this.motionButton=this.querySelector('.maya-motion');
@@ -18,7 +23,7 @@ class MayaAvatar extends HTMLElement {
   this.reduced.addEventListener('change',this.onPreference);
   this.updateMotion();this.attributeChangedCallback();
  }
- disconnectedCallback(){this.reduced?.removeEventListener('change',this.onPreference);this.initialized=false;}
+ disconnectedCallback(){this.reduced?.removeEventListener('change',this.onPreference);this.visibility?.disconnect();this.idle?.pause();this.querySelector('.maya-avatar-video')?.pause();this.initialized=false;}
  updateMotion(){
   if(!this.motionButton)return;
   const paused=this.userPaused||this.reduced.matches;
@@ -28,10 +33,21 @@ class MayaAvatar extends HTMLElement {
   this.motionButton.setAttribute('aria-pressed',String(paused));
   this.motionButton.setAttribute('aria-label',paused?'Play Maya animation':'Pause Maya animation');
   this.motionButton.title=this.reduced.matches?'Animation follows your device’s reduced-motion preference':this.motionButton.getAttribute('aria-label');
+  this.updatePresence();
  }
- attributeChangedCallback(){
-  const label=this.querySelector('[data-avatar-state]');
-  if(label)label.textContent=labels[this.getAttribute('state')]||labels.idle;
+ updatePresence(){
+  if(!this.idle)return;
+  const state=this.getAttribute('state');
+  let expression=state==='thinking'?'focused':this.getAttribute('expression')||(state==='listening'?'attentive':'warm');
+  if(!['warm','attentive','concerned','reassuring','focused','amused'].includes(expression))expression='warm';
+  if(this.hasAttribute('motion-paused')||this.hasAttribute('talking')||!this.visible){this.idle.pause();return}
+  if(this.idle.dataset.expression!==expression){
+   this.idle.dataset.expression=expression;this.removeAttribute('idle-ready');
+   this.idle.loop=expression!=='amused';
+   this.idle.src=`/assets/maya-idle-${expression}.mp4?v=20261112c`;
+  }
+  this.idle.play().catch(()=>{});
  }
+ attributeChangedCallback(){this.updatePresence()}
 }
 customElements.define('maya-avatar',MayaAvatar);

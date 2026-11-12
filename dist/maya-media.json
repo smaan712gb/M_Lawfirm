@@ -1,0 +1,725 @@
+{
+  "version": 1,
+  "clips": [
+    {
+      "language": "en",
+      "key": "hello",
+      "text": "Hi, you've reached M Law Firm. I'm Maya. How can I help?",
+      "revision": "7f5d91b8e78f47c7",
+      "expression": "warm",
+      "audio": "/assets/maya-en-hello.wav",
+      "video": "/assets/maya-en-hello.mp4"
+    },
+    {
+      "language": "en",
+      "key": "name",
+      "text": "Of course. May I have your name?",
+      "revision": "86c32a83d1464618",
+      "expression": "attentive",
+      "audio": "/assets/maya-en-name.wav",
+      "video": "/assets/maya-en-name.mp4"
+    },
+    {
+      "language": "en",
+      "key": "phone",
+      "text": "And what's the best number to reach you? Please include the country code.",
+      "revision": "888c583b6d0be235",
+      "expression": "attentive",
+      "audio": "/assets/maya-en-phone.wav",
+      "video": "/assets/maya-en-phone.mp4"
+    },
+    {
+      "language": "en",
+      "key": "story",
+      "text": "Could you tell me a little about what happened? Just a brief summary for now. Please leave out medical records and sensitive details.",
+      "revision": "cb45bbb6ba4fe074",
+      "expression": "concerned",
+      "audio": "/assets/maya-en-story.wav",
+      "video": "/assets/maya-en-story.mp4"
+    },
+    {
+      "language": "en",
+      "key": "confirm",
+      "text": "Thank you. Shall I save these details for our team?",
+      "revision": "15b72fe3215da846",
+      "expression": "focused",
+      "audio": "/assets/maya-en-confirm.wav",
+      "video": "/assets/maya-en-confirm.mp4"
+    },
+    {
+      "language": "en",
+      "key": "saved",
+      "text": "Thank you. I've saved your inquiry for our team. A lawyer will review it before we can agree to represent you.",
+      "revision": "19d691fb004ab86d",
+      "expression": "reassuring",
+      "audio": "/assets/maya-en-saved.wav",
+      "video": "/assets/maya-en-saved.mp4"
+    },
+    {
+      "language": "en",
+      "key": "choose",
+      "text": "Let's find a time for you. These appointments are all in New York time.",
+      "revision": "d04922f1372c8d0c",
+      "expression": "warm",
+      "audio": "/assets/maya-en-choose.wav",
+      "video": "/assets/maya-en-choose.mp4"
+    },
+    {
+      "language": "en",
+      "key": "booked",
+      "text": "You're booked in our calendar. We look forward to speaking with you.",
+      "revision": "db7c8dea6b5b7efe",
+      "expression": "warm",
+      "audio": "/assets/maya-en-booked.wav",
+      "video": "/assets/maya-en-booked.mp4"
+    },
+    {
+      "language": "en",
+      "key": "client",
+      "text": "Of course. What's your matter reference? I'll need to verify access before sharing an update.",
+      "revision": "3fd02ad5d1096c88",
+      "expression": "focused",
+      "audio": "/assets/maya-en-client.wav",
+      "video": "/assets/maya-en-client.mp4"
+    },
+    {
+      "language": "en",
+      "key": "code",
+      "text": "If that reference matches, we'll send a code to the contact on file. Please enter it here.",
+      "revision": "c99653746ebec411",
+      "expression": "focused",
+      "audio": "/assets/maya-en-code.wav",
+      "video": "/assets/maya-en-code.mp4"
+    },
+    {
+      "language": "en",
+      "key": "denied",
+      "text": "I'm sorry, I couldn't verify access. You can request a callback from our team.",
+      "revision": "4a61e17f3585f3e1",
+      "expression": "concerned",
+      "audio": "/assets/maya-en-denied.wav",
+      "video": "/assets/maya-en-denied.mp4"
+    },
+    {
+      "language": "en",
+      "key": "noUpdate",
+      "text": "I don't have an approved update to share just yet. I can help you request a callback.",
+      "revision": "76d4849acd28c782",
+      "expression": "reassuring",
+      "audio": "/assets/maya-en-noUpdate.wav",
+      "video": "/assets/maya-en-noUpdate.mp4"
+    },
+    {
+      "language": "en",
+      "key": "callbackSaved",
+      "text": "Your callback request is saved. Our team still needs to return your call.",
+      "revision": "fb9f08ad6cd24b4d",
+      "expression": "reassuring",
+      "audio": "/assets/maya-en-callbackSaved.wav",
+      "video": "/assets/maya-en-callbackSaved.mp4"
+    },
+    {
+      "language": "en",
+      "key": "handoff",
+      "text": "If you are in immediate danger or need urgent medical assistance, contact local emergency services. I can also help request a callback; I cannot provide emergency care or legal advice.",
+      "revision": "2ba1ee86c9ebf260",
+      "expression": "concerned",
+      "audio": "/assets/maya-en-handoff.wav",
+      "video": "/assets/maya-en-handoff.mp4"
+    },
+    {
+      "language": "en",
+      "key": "invalid",
+      "text": "That didn't come through correctly. Could you check it and try once more?",
+      "revision": "ebcf1e862a4f2d9f",
+      "expression": "attentive",
+      "audio": "/assets/maya-en-invalid.wav",
+      "video": "/assets/maya-en-invalid.mp4"
+    },
+    {
+      "language": "en",
+      "key": "office",
+      "text": "Of course. Our offices are in Manhattan and Jericho. I've put the addresses and phone number here for you.",
+      "revision": "75073733f57df1bb",
+      "expression": "warm",
+      "audio": "/assets/maya-en-office.wav",
+      "video": "/assets/maya-en-office.mp4"
+    },
+    {
+      "language": "es",
+      "key": "hello",
+      "text": "Hola, M Law Firm. Habla Maya. ¿En qué puedo ayudarle?",
+      "revision": "ce171c29a90cb924",
+      "expression": "warm",
+      "audio": "/assets/maya-es-hello.wav",
+      "video": "/assets/maya-es-hello.mp4"
+    },
+    {
+      "language": "es",
+      "key": "name",
+      "text": "¿Me indica su nombre?",
+      "revision": "c23161b41dc4d208",
+      "expression": "attentive",
+      "audio": "/assets/maya-es-name.wav",
+      "video": "/assets/maya-es-name.mp4"
+    },
+    {
+      "language": "es",
+      "key": "phone",
+      "text": "¿Cuál es su número de teléfono, con código de país?",
+      "revision": "3204b75451615590",
+      "expression": "attentive",
+      "audio": "/assets/maya-es-phone.wav",
+      "video": "/assets/maya-es-phone.mp4"
+    },
+    {
+      "language": "es",
+      "key": "story",
+      "text": "Cuénteme brevemente qué ocurrió. No incluya expedientes médicos ni identificadores sensibles.",
+      "revision": "1bcac74db588380a",
+      "expression": "concerned",
+      "audio": "/assets/maya-es-story.wav",
+      "video": "/assets/maya-es-story.mp4"
+    },
+    {
+      "language": "es",
+      "key": "confirm",
+      "text": "¿Desea guardar estos datos para el equipo?",
+      "revision": "c07b5bff05e4fb48",
+      "expression": "focused",
+      "audio": "/assets/maya-es-confirm.wav",
+      "video": "/assets/maya-es-confirm.mp4"
+    },
+    {
+      "language": "es",
+      "key": "saved",
+      "text": "Su consulta está guardada. Un abogado la revisará antes de aceptar la representación.",
+      "revision": "cfed93cf28a1afd0",
+      "expression": "reassuring",
+      "audio": "/assets/maya-es-saved.wav",
+      "video": "/assets/maya-es-saved.mp4"
+    },
+    {
+      "language": "es",
+      "key": "choose",
+      "text": "Elija una hora. Las citas se muestran en la hora de Nueva York.",
+      "revision": "7db1df786fe1068e",
+      "expression": "warm",
+      "audio": "/assets/maya-es-choose.wav",
+      "video": "/assets/maya-es-choose.mp4"
+    },
+    {
+      "language": "es",
+      "key": "booked",
+      "text": "Su cita está reservada en el calendario del despacho.",
+      "revision": "9c95938d8ae0ba98",
+      "expression": "warm",
+      "audio": "/assets/maya-es-booked.wav",
+      "video": "/assets/maya-es-booked.mp4"
+    },
+    {
+      "language": "es",
+      "key": "client",
+      "text": "Introduzca la referencia de su caso. Verificaré su acceso antes de compartir información.",
+      "revision": "e46fd6e9cb0d847a",
+      "expression": "focused",
+      "audio": "/assets/maya-es-client.wav",
+      "video": "/assets/maya-es-client.mp4"
+    },
+    {
+      "language": "es",
+      "key": "code",
+      "text": "Si la referencia coincide, se enviará un código al contacto registrado. Introduzca el código.",
+      "revision": "15ab258b081ad13c",
+      "expression": "focused",
+      "audio": "/assets/maya-es-code.wav",
+      "video": "/assets/maya-es-code.mp4"
+    },
+    {
+      "language": "es",
+      "key": "denied",
+      "text": "No pude verificar el acceso. Solicite una llamada del equipo.",
+      "revision": "9a78578796e58c94",
+      "expression": "concerned",
+      "audio": "/assets/maya-es-denied.wav",
+      "video": "/assets/maya-es-denied.mp4"
+    },
+    {
+      "language": "es",
+      "key": "noUpdate",
+      "text": "No hay una actualización aprobada disponible. Puede solicitar una llamada.",
+      "revision": "bf18440b362fb3bd",
+      "expression": "reassuring",
+      "audio": "/assets/maya-es-noUpdate.wav",
+      "video": "/assets/maya-es-noUpdate.mp4"
+    },
+    {
+      "language": "es",
+      "key": "callbackSaved",
+      "text": "Su solicitud de llamada está guardada. Un miembro del equipo debe devolverle la llamada.",
+      "revision": "2885d69679cf80f0",
+      "expression": "reassuring",
+      "audio": "/assets/maya-es-callbackSaved.wav",
+      "video": "/assets/maya-es-callbackSaved.mp4"
+    },
+    {
+      "language": "es",
+      "key": "handoff",
+      "text": "Si está en peligro inmediato o necesita atención médica urgente, contacte con los servicios de emergencia locales. No puedo prestar asistencia de emergencia ni asesoramiento jurídico.",
+      "revision": "7a43849b6285a6c8",
+      "expression": "concerned",
+      "audio": "/assets/maya-es-handoff.wav",
+      "video": "/assets/maya-es-handoff.mp4"
+    },
+    {
+      "language": "es",
+      "key": "invalid",
+      "text": "Revise la información e inténtelo de nuevo.",
+      "revision": "febe831580b5c491",
+      "expression": "attentive",
+      "audio": "/assets/maya-es-invalid.wav",
+      "video": "/assets/maya-es-invalid.mp4"
+    },
+    {
+      "language": "es",
+      "key": "office",
+      "text": "Claro. Tenemos oficinas en Manhattan y Jericho. Aquí tiene las direcciones y el teléfono.",
+      "revision": "5d78fbac651623c9",
+      "expression": "warm",
+      "audio": "/assets/maya-es-office.wav",
+      "video": "/assets/maya-es-office.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "hello",
+      "text": "السلام علیکم۔ ایم لا فرم سے مایا بات کر رہی ہوں۔ بتائیے، میں آپ کی کیا مدد کر سکتی ہوں؟",
+      "revision": "8b3458fcf0eb9b40",
+      "expression": "warm",
+      "audio": "/assets/maya-ur-hello.wav",
+      "video": "/assets/maya-ur-hello.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "name",
+      "text": "جی ضرور۔ آپ کا نام بتا دیجیے۔",
+      "revision": "d314f3bda1051921",
+      "expression": "attentive",
+      "audio": "/assets/maya-ur-name.wav",
+      "video": "/assets/maya-ur-name.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "phone",
+      "text": "آپ سے بات کرنے کے لیے کون سا فون نمبر بہتر رہے گا؟ ملکی کوڈ بھی شامل کر دیجیے۔",
+      "revision": "8e3411c5e74b7026",
+      "expression": "attentive",
+      "audio": "/assets/maya-ur-phone.wav",
+      "video": "/assets/maya-ur-phone.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "story",
+      "text": "ذرا بتائیے، کیا ہوا تھا؟ ابھی مختصر بتا دیں۔ طبی ریکارڈ اور ذاتی شناختی تفصیلات شامل نہ کریں۔",
+      "revision": "b8b81127e9bf4342",
+      "expression": "concerned",
+      "audio": "/assets/maya-ur-story.wav",
+      "video": "/assets/maya-ur-story.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "confirm",
+      "text": "شکریہ۔ کیا میں یہ باتیں ہماری ٹیم کے لیے محفوظ کر دوں؟",
+      "revision": "85aa9b903aaa8dd6",
+      "expression": "focused",
+      "audio": "/assets/maya-ur-confirm.wav",
+      "video": "/assets/maya-ur-confirm.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "saved",
+      "text": "آپ کی درخواست محفوظ ہو گئی ہے۔ کیس قبول کرنے سے پہلے ہمارے وکیل اس کا جائزہ لیں گے۔",
+      "revision": "a0c1f5378b97f26a",
+      "expression": "reassuring",
+      "audio": "/assets/maya-ur-saved.wav",
+      "video": "/assets/maya-ur-saved.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "choose",
+      "text": "اپنے لیے ایک وقت چن لیجیے۔ یہ تمام وقت نیویارک کے ہیں۔",
+      "revision": "066ae2aaf1827c2e",
+      "expression": "warm",
+      "audio": "/assets/maya-ur-choose.wav",
+      "video": "/assets/maya-ur-choose.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "booked",
+      "text": "آپ کی ملاقات ہمارے کیلنڈر میں بک ہو گئی ہے۔",
+      "revision": "c2a639b548b6dbb2",
+      "expression": "warm",
+      "audio": "/assets/maya-ur-booked.wav",
+      "video": "/assets/maya-ur-booked.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "client",
+      "text": "اپنے کیس کا حوالہ بتا دیجیے۔ کوئی خبر دینے سے پہلے رسائی کی تصدیق کرنا ضروری ہے۔",
+      "revision": "1e61003ceb48bc0a",
+      "expression": "focused",
+      "audio": "/assets/maya-ur-client.wav",
+      "video": "/assets/maya-ur-client.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "code",
+      "text": "اگر حوالہ مل گیا تو آپ کے رجسٹرڈ رابطے پر ایک کوڈ آئے گا۔ وہ کوڈ یہاں درج کر دیجیے۔",
+      "revision": "868a823c311107ad",
+      "expression": "focused",
+      "audio": "/assets/maya-ur-code.wav",
+      "video": "/assets/maya-ur-code.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "denied",
+      "text": "معاف کیجیے، رسائی کی تصدیق نہیں ہو سکی۔ ہماری ٹیم سے واپسی کال کی درخواست کر سکتے ہیں۔",
+      "revision": "beac68b75282ea66",
+      "expression": "concerned",
+      "audio": "/assets/maya-ur-denied.wav",
+      "video": "/assets/maya-ur-denied.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "noUpdate",
+      "text": "ابھی آپ کے لیے کوئی منظور شدہ خبر موجود نہیں ہے۔ چاہیں تو واپسی کال کی درخواست کر سکتے ہیں۔",
+      "revision": "cd5424c037c44d9e",
+      "expression": "reassuring",
+      "audio": "/assets/maya-ur-noUpdate.wav",
+      "video": "/assets/maya-ur-noUpdate.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "callbackSaved",
+      "text": "واپسی کال کی درخواست محفوظ ہو گئی ہے۔ ہماری ٹیم کو ابھی آپ سے بات کرنی ہے۔",
+      "revision": "738cbf508f885762",
+      "expression": "reassuring",
+      "audio": "/assets/maya-ur-callbackSaved.wav",
+      "video": "/assets/maya-ur-callbackSaved.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "handoff",
+      "text": "فوری خطرے یا طبی ایمرجنسی میں مقامی ہنگامی خدمات سے رابطہ کریں۔ میں ہنگامی نگہداشت یا قانونی مشورہ نہیں دے سکتی۔",
+      "revision": "5ed0e6e0fc2673fa",
+      "expression": "concerned",
+      "audio": "/assets/maya-ur-handoff.wav",
+      "video": "/assets/maya-ur-handoff.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "invalid",
+      "text": "یہ معلومات درست نہیں لگ رہیں۔ ایک بار پھر دیکھ کر بتا دیجیے۔",
+      "revision": "e681d650ce218ff5",
+      "expression": "attentive",
+      "audio": "/assets/maya-ur-invalid.wav",
+      "video": "/assets/maya-ur-invalid.mp4"
+    },
+    {
+      "language": "ur",
+      "key": "office",
+      "text": "جی ضرور۔ ہمارے دفاتر مینہٹن اور جیریکو میں ہیں۔ پتے اور فون نمبر آپ کے سامنے لکھ دیے ہیں۔",
+      "revision": "d4d181ec3da5d99c",
+      "expression": "warm",
+      "audio": "/assets/maya-ur-office.wav",
+      "video": "/assets/maya-ur-office.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "hello",
+      "text": "नमस्ते। एम लॉ फ़र्म, मैं माया बोल रही हूँ। बताइए, मैं आपकी क्या मदद कर सकती हूँ?",
+      "revision": "d18d4c2dc3523831",
+      "expression": "warm",
+      "audio": "/assets/maya-hi-hello.wav",
+      "video": "/assets/maya-hi-hello.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "name",
+      "text": "आपका नाम क्या है?",
+      "revision": "42ee668d54a6b092",
+      "expression": "attentive",
+      "audio": "/assets/maya-hi-name.wav",
+      "video": "/assets/maya-hi-name.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "phone",
+      "text": "देश कोड सहित आपका फ़ोन नंबर क्या है?",
+      "revision": "026c55a13ce09a05",
+      "expression": "attentive",
+      "audio": "/assets/maya-hi-phone.wav",
+      "video": "/assets/maya-hi-phone.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "story",
+      "text": "संक्षेप में बताएं क्या हुआ। मेडिकल रिकॉर्ड या संवेदनशील पहचान जानकारी न दें।",
+      "revision": "732471526911c990",
+      "expression": "concerned",
+      "audio": "/assets/maya-hi-story.wav",
+      "video": "/assets/maya-hi-story.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "confirm",
+      "text": "क्या मैं ये विवरण टीम के लिए सहेज दूँ?",
+      "revision": "820b27c21e61e1c8",
+      "expression": "focused",
+      "audio": "/assets/maya-hi-confirm.wav",
+      "video": "/assets/maya-hi-confirm.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "saved",
+      "text": "आपकी पूछताछ सहेज दी गई है। प्रतिनिधित्व से पहले वकील समीक्षा करेगा।",
+      "revision": "149834f26aa40c9a",
+      "expression": "reassuring",
+      "audio": "/assets/maya-hi-saved.wav",
+      "video": "/assets/maya-hi-saved.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "choose",
+      "text": "समय चुनें। सभी समय न्यूयॉर्क के हैं।",
+      "revision": "c2a63dab27a9b17b",
+      "expression": "warm",
+      "audio": "/assets/maya-hi-choose.wav",
+      "video": "/assets/maya-hi-choose.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "booked",
+      "text": "आपकी नियुक्ति फर्म के कैलेंडर में आरक्षित है।",
+      "revision": "44094a4bb0d523c5",
+      "expression": "warm",
+      "audio": "/assets/maya-hi-booked.wav",
+      "video": "/assets/maya-hi-booked.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "client",
+      "text": "अपने मामले का संदर्भ दर्ज करें। जानकारी देने से पहले पहुँच सत्यापित होगी।",
+      "revision": "780777ed60982bad",
+      "expression": "focused",
+      "audio": "/assets/maya-hi-client.wav",
+      "video": "/assets/maya-hi-client.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "code",
+      "text": "यदि संदर्भ मेल खाता है तो पंजीकृत संपर्क पर कोड भेजा जाएगा। कोड दर्ज करें।",
+      "revision": "026c6d58576a567b",
+      "expression": "focused",
+      "audio": "/assets/maya-hi-code.wav",
+      "video": "/assets/maya-hi-code.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "denied",
+      "text": "पहुँच सत्यापित नहीं हुई। टीम से वापस कॉल का अनुरोध करें।",
+      "revision": "9d2f53e0a965fe93",
+      "expression": "concerned",
+      "audio": "/assets/maya-hi-denied.wav",
+      "video": "/assets/maya-hi-denied.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "noUpdate",
+      "text": "कोई स्वीकृत अपडेट उपलब्ध नहीं है। वापस कॉल का अनुरोध कर सकते हैं।",
+      "revision": "6fd08e026d7dc9e0",
+      "expression": "reassuring",
+      "audio": "/assets/maya-hi-noUpdate.wav",
+      "video": "/assets/maya-hi-noUpdate.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "callbackSaved",
+      "text": "वापस कॉल का अनुरोध सहेज दिया गया है। टीम को अभी आपको कॉल करना है।",
+      "revision": "2b13ef285be54570",
+      "expression": "reassuring",
+      "audio": "/assets/maya-hi-callbackSaved.wav",
+      "video": "/assets/maya-hi-callbackSaved.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "handoff",
+      "text": "तत्काल खतरे या चिकित्सा आपातस्थिति में स्थानीय आपात सेवाओं से संपर्क करें। मैं आपात देखभाल या कानूनी सलाह नहीं दे सकती।",
+      "revision": "a693bfa12a987c23",
+      "expression": "concerned",
+      "audio": "/assets/maya-hi-handoff.wav",
+      "video": "/assets/maya-hi-handoff.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "invalid",
+      "text": "जानकारी जाँचें और फिर कोशिश करें।",
+      "revision": "e19d07a68796067e",
+      "expression": "attentive",
+      "audio": "/assets/maya-hi-invalid.wav",
+      "video": "/assets/maya-hi-invalid.mp4"
+    },
+    {
+      "language": "hi",
+      "key": "office",
+      "text": "ज़रूर। हमारे कार्यालय मैनहैटन और जेरिको में हैं। पते और फ़ोन नंबर यहाँ दिए हैं।",
+      "revision": "0d25dfe0284acf6d",
+      "expression": "warm",
+      "audio": "/assets/maya-hi-office.wav",
+      "video": "/assets/maya-hi-office.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "hello",
+      "text": "مرحباً، أنا مايا من مكتب إم لو للمحاماة. كيف يمكنني مساعدتك اليوم؟",
+      "revision": "cf7b37a71f6f43ff",
+      "expression": "warm",
+      "audio": "/assets/maya-ar-hello.wav",
+      "video": "/assets/maya-ar-hello.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "name",
+      "text": "ما اسمك؟",
+      "revision": "61a6cf57d1553665",
+      "expression": "attentive",
+      "audio": "/assets/maya-ar-name.wav",
+      "video": "/assets/maya-ar-name.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "phone",
+      "text": "ما رقم هاتفك مع رمز الدولة؟",
+      "revision": "1e0cb18baa7c207b",
+      "expression": "attentive",
+      "audio": "/assets/maya-ar-phone.wav",
+      "video": "/assets/maya-ar-phone.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "story",
+      "text": "صف ما حدث بإيجاز. لا تذكر سجلات طبية أو بيانات هوية حساسة.",
+      "revision": "998d9722ba864c3a",
+      "expression": "concerned",
+      "audio": "/assets/maya-ar-story.wav",
+      "video": "/assets/maya-ar-story.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "confirm",
+      "text": "هل أحفظ هذه التفاصيل للفريق؟",
+      "revision": "265405dd43e8b249",
+      "expression": "focused",
+      "audio": "/assets/maya-ar-confirm.wav",
+      "video": "/assets/maya-ar-confirm.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "saved",
+      "text": "تم حفظ استفسارك. سيراجعه محام قبل بدء التمثيل القانوني.",
+      "revision": "ad0198d00cf770da",
+      "expression": "reassuring",
+      "audio": "/assets/maya-ar-saved.wav",
+      "video": "/assets/maya-ar-saved.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "choose",
+      "text": "اختر وقتاً. جميع المواعيد بتوقيت نيويورك.",
+      "revision": "f893551baae7633e",
+      "expression": "warm",
+      "audio": "/assets/maya-ar-choose.wav",
+      "video": "/assets/maya-ar-choose.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "booked",
+      "text": "تم حجز موعدك في تقويم المكتب.",
+      "revision": "1aa2b04f5f926b6c",
+      "expression": "warm",
+      "audio": "/assets/maya-ar-booked.wav",
+      "video": "/assets/maya-ar-booked.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "client",
+      "text": "أدخل مرجع القضية. سأتحقق من صلاحية الوصول قبل مشاركة أي تحديث.",
+      "revision": "23296869f3fd9620",
+      "expression": "focused",
+      "audio": "/assets/maya-ar-client.wav",
+      "video": "/assets/maya-ar-client.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "code",
+      "text": "إذا تطابق المرجع فسيُرسل رمز إلى جهة الاتصال المسجلة. أدخل الرمز.",
+      "revision": "daac2e9863d1f816",
+      "expression": "focused",
+      "audio": "/assets/maya-ar-code.wav",
+      "video": "/assets/maya-ar-code.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "denied",
+      "text": "تعذر التحقق من الوصول. يرجى طلب معاودة الاتصال من الفريق.",
+      "revision": "d9fb2ac0240f4d0b",
+      "expression": "concerned",
+      "audio": "/assets/maya-ar-denied.wav",
+      "video": "/assets/maya-ar-denied.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "noUpdate",
+      "text": "لا يوجد تحديث معتمد متاح. يمكنك طلب معاودة الاتصال.",
+      "revision": "895db53a6db997d4",
+      "expression": "reassuring",
+      "audio": "/assets/maya-ar-noUpdate.wav",
+      "video": "/assets/maya-ar-noUpdate.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "callbackSaved",
+      "text": "تم حفظ طلب الاتصال. ما زال على أحد أعضاء الفريق الاتصال بك.",
+      "revision": "0cc2f2da95261f0e",
+      "expression": "reassuring",
+      "audio": "/assets/maya-ar-callbackSaved.wav",
+      "video": "/assets/maya-ar-callbackSaved.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "handoff",
+      "text": "إذا كنت في خطر فوري أو تحتاج إلى رعاية طبية عاجلة، اتصل بخدمات الطوارئ المحلية. لا يمكنني تقديم رعاية طارئة أو مشورة قانونية.",
+      "revision": "201ead28c94e9351",
+      "expression": "concerned",
+      "audio": "/assets/maya-ar-handoff.wav",
+      "video": "/assets/maya-ar-handoff.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "invalid",
+      "text": "تحقق من المعلومات وحاول مجدداً.",
+      "revision": "71f991cfb135948a",
+      "expression": "attentive",
+      "audio": "/assets/maya-ar-invalid.wav",
+      "video": "/assets/maya-ar-invalid.mp4"
+    },
+    {
+      "language": "ar",
+      "key": "office",
+      "text": "بالتأكيد. لدينا مكتبان في مانهاتن وجيريكو. العناوين ورقم الهاتف أمامك هنا.",
+      "revision": "1400020205ef20b4",
+      "expression": "warm",
+      "audio": "/assets/maya-ar-office.wav",
+      "video": "/assets/maya-ar-office.mp4"
+    }
+  ]
+}

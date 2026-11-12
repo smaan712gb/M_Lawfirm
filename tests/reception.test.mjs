@@ -19,9 +19,22 @@ test('every text language requires confirmation; a repeated confirm cannot dupli
   await send('','confirm');await send('','confirm');assert.equal(f.state.matters.length,6);assert.equal(f.state.tasks[0].matter,f.state.matters[0].id);assert.equal(f.state.matters[0].source,'Maya receptionist');
  }
 });
+test('interruption preserves the intake step and multilingual phone digits normalize',async()=>{
+ const f=fixture(),{sessionId}=f.service.start('ur');const send=(text='',action='')=>f.service.send(sessionId,{text,action});
+ await send('مجھے اپائنٹمنٹ چاہیے');assert.equal((await send('ذرا رکیں۔')).step,'name');assert.equal((await send('دوبارہ کہیں۔')).utterance,'name');assert.deepEqual(f.service.session(sessionId).draft,{});
+ await send('Fictional Caller');const result=await send('۲۱۲،۵۵۵،۰۱۱۹');assert.equal(result.step,'slot');assert.equal(f.service.session(sessionId).draft.phone,'212 555 0119');assert.equal(f.state.appointments?.length||0,0);
+});
+test('spoken appointment choices still require a separate confirmation',async()=>{
+ for(const text of ['the first one','the first one please','پہلا','पहला','الأول','primera','۱']){
+  const f=fixture(),{send,next}=await prepare(f.service,'book');assert.equal((await send('first weekend')).step,'slot');
+  const choice=await send(text);assert.equal(choice.step,'confirm');assert.equal(choice.summary.start,next.choices[0].action.slice(5));assert.equal(f.state.appointments?.length||0,0);
+ }
+});
 test('concurrent booking confirmations cannot reserve the same slot; cancellation releases it',async()=>{
  const f=fixture(),a=await prepare(f.service,'book'),b=await prepare(f.service,'book');const action=a.next.choices[0].action;assert.equal(action,b.next.choices[0].action);
  await a.send('',action);await b.send('',action);const results=await Promise.all([a.send('','confirm'),b.send('','confirm')]);assert.equal(f.state.appointments.length,1);assert.equal(results.filter(r=>r.receipt).length,1);assert.equal(results.filter(r=>r.step==='slot').length,1);
+ assert.equal(f.state.appointments[0].conflictReview,'Required');
+ assert.equal(f.state.tasks.filter(t=>t.appointment===f.state.appointments[0].id).length,1);
  assert.ok(!slots(f.state,Date.parse('2026-11-12T13:00Z')).some(s=>'slot:'+s.id===action));f.state.appointments[0].status='Cancelled';assert.ok(slots(f.state,Date.parse('2026-11-12T13:00Z')).some(s=>'slot:'+s.id===action));
 });
 test('calendar uses New York hours across spring and autumn daylight-saving changes',()=>{

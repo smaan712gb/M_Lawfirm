@@ -1,19 +1,32 @@
-# Maya portrait and motion — November 12, 2026
+# Maya portrait, speech and contextual motion — November 12, 2026
 
-The user approved this visual direction during implementation. Both images were created with the built-in image-generation tool and copied into the project. They depict an original fictional adult receptionist, not an employee photograph.
+Maya is an original fictional adult identity. The approved base portrait and closed-eye reference were created with the built-in image-generation tool; no employee photograph or cloned real-person voice was used.
 
-- Base image: `dist/assets/maya-portrait.png`
-- Closed-eye frame: `dist/assets/maya-blink.png`
-- Reusable component: `dist/maya-avatar.mjs`
-- Motion and responsive styles: `dist/maya-avatar.css`
+The portrait caption ("Here to help / Maya · Virtual receptionist") has been removed. The spoken greetings give Maya's name and M Law Firm in the selected language, without an AI-assistant introduction. A discreet virtual/generated-identity disclosure remains below the portrait.
 
-The same portrait appears in the website concierge section, reception dashboard, and Maya conversation window. A masked closed-eye frame produces short blinks; subtle motion gives the portrait a gentle idle presence. The local animation has no external avatar subscription or inference dependency. It is an animated portrait, not a lip-synchronized video character.
+## What the current renderer does
 
-Listening, processing and speaking labels follow microphone, request and audio states. Audio begins only on an explicit user action. The pause control synchronizes across visible portraits and remembers the preference in that browser. Reduced-motion preferences stop animation. The interface identifies Maya as a virtual receptionist and retains accurate telephone connection status.
+Audio-conditioned mouth frames are rendered locally, then a 3D portrait model adds head pose, eyelid movement, small eye shifts, facial expression, neck motion and subtle shoulder breathing. Pose holds and per-clip blink timing reduce repetitive motion. The source framing and microphone mask are calibrated to this approved portrait only.
 
-Browser verification: portrait/frame assets loaded; blink animation and masks active; pause disabled animation; playback resumed; English and Spanish audio samples showed Speaking; language change returned to idle; mobile inquiry advanced to the name prompt; modal close returned to the page; no console errors were recorded. Desktop and 390-pixel mobile layouts were inspected. Live microphone transcription was not retested for this visual change because the preview server had no speech service attached.
+The user identified mouth movement before the voice and overly rigid posture. The English recording had about 0.76 seconds of leading quiet, while the mouth model was already animating. A silence-aware refinement stage now keeps the original closed mouth until voiced audio, releases through short pauses, and preserves surrounding skin detail. The portrait stage uses a tighter face crop, leaves the speaking mouth's expression controls alone, and coordinates head, neck and shoulder movement. Intermediate remuxing preserves every video frame. The user accepted this motion as good enough to move the prototype forward while noting that its lateral movement still looks artificial; human-like naturalness is not claimed.
 
-Visual evidence: `maya-human-desktop.jpg` and `maya-human-mobile.jpg`.
+English, Urdu, Spanish, Hindi and Arabic have 80 recordings for the existing fixed reception utterances. The browser matches both the exact text and selected language to an asset, with a combined audio/video revision to avoid replaying an older cached voice or animation. The build verifies source text, recording hashes and the motion pipeline revision before indexing. Changed audio invalidates the lip render; changed refinement or motion code invalidates downstream output. It never substitutes English for missing Urdu or switches to a generic browser voice. The selected language survives closing and reopening Maya. Punjabi can continue in text without a bundled voice.
+
+After the first synthetic-voice auditions were rejected as artificial, a new original voice was designed from text instructions. The user preferred the softer, slower English preview. English/Spanish generation uses that synthetic reference directly; Arabic uses it with the multilingual model. Hindi/phonetic Urdu use a separate native-accent synthetic female reference after the English reference produced unclear pronunciation. English and Urdu prompts now use more conversational phrasing. A pitch-preserving 0.90 tempo and gentle high-frequency softening are applied before lip-sync rendering. The references and their provenance are retained in `voice/reference/`; no real-person recording was supplied. Native-speaker acceptance and consistent perceived identity across languages remain separate from automated transcription checks.
+
+Urdu uses an explicit pronunciation transcription with a local Hindi-capable female voice. The greeting was transcribed back locally as Urdu with Maya and M Law in the introduction. This validates an intelligible fixed phrase, not native-speaker acceptance or general Urdu synthesis. Actual telephone audio has not been validated.
+
+Five expression families follow explicit workflow context: warm greeting/booking, attentive information collection/listening, concerned injury/emergency discussion, focused verification/confirmation, and reassuring next steps. A sixth, brief amused reaction responds only to an explicit lighthearted cue and does not loop. Distressing content takes precedence. Longer or faster voice turns use a more measured reply. These are presentation choices, not inference of a caller's mental state. The avatar is not promised to be indistinguishable from a person.
+
+The motion toggle applies across visible portraits and respects the device's reduced-motion preference. Stop voice, language change and modal close cancel playback. Typing interrupts speech and puts Maya into an attentive pose. No camera or emotion-recognition service is used.
+
+## Scope and reproducibility
+
+Bundled clips play without a GPU or an external avatar service. They cover fixed scripted reception responses; arbitrary live-generated text does not automatically receive lip-sync. The optional local speech service can generate other supported-language audio, but live free-form portrait rendering is not connected. Model inference, hosting and telephony still have operating costs.
+
+See `voice/README.md` for the exact render environment and upstream revisions, `voice/THIRD_PARTY_NOTICES.txt` for notices, `maya-speech-assets.json` for speech hashes and pronunciation scripts, and `maya-greeting-transcripts.json` for local transcription results. Model caches, experiments and intermediate renders are ignored and are not deployed.
+
+Browser checks include Urdu selection/reopening, removed overlay, actual video playback and conversation-expression changes. Final media timing/decoding results are recorded in `maya-media-check.json`; final UI screenshots are saved with the release evidence. Native-speaker acceptance, real phone calls and full-duplex latency are still separate acceptance work.
 
 ## Original portrait prompt
 

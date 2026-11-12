@@ -1,12 +1,11 @@
 """Generate sample speech and check local STT. Downloads openly available weights."""
-import json
+import json,subprocess
 from pathlib import Path
 from service import synthesize
 from faster_whisper import WhisperModel
-samples={
- 'es':'Hola, soy Maya, la recepcionista de inteligencia artificial de M Law. Estoy aquí para escucharle. ¿Cómo puedo ayudarle?',
- 'hi':'नमस्ते, मैं माया हूँ, एम लॉ की ए आई रिसेप्शनिस्ट। मैं आपकी बात सुनने के लिए यहाँ हूँ। आपकी कैसे मदद करूँ?'
-}
+root=Path(__file__).resolve().parents[1]
+copy=json.loads(subprocess.check_output(['node','--input-type=module','-e',"import {copy} from './dist/maya-core.mjs';console.log(JSON.stringify(copy))"],cwd=root,text=True,encoding='utf-8'))
+samples={lang:copy[lang]['hello'] for lang in ('es','hi')}
 results={}
 for lang,text in samples.items():
  try:

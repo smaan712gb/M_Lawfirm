@@ -1,15 +1,17 @@
 # Maya: owned reception, calendar and voice
 
-Maya is an original illustrated AI identity with a female Kokoro voice. She explicitly identifies herself as AI. The software has no reception or scheduling SaaS dependency. It uses the same SQLite workspace as matters, tasks and approved client updates.
+Maya is an original, photorealistic fictional receptionist with a synthetic female voice. Her spoken introduction gives her name and M Law Firm in the selected language. A separate visual disclosure identifies her as a virtual, generated identity. The software has no reception or scheduling SaaS dependency. It uses the same SQLite workspace as matters, tasks and approved client updates.
 
 ## Working now
 
 - New inquiries become matters plus conflict-review tasks after the caller confirms the summary.
 - Callbacks enter a staff queue; staff can mark them returned.
-- Thirty-minute consultations reserve a shared team calendar, weekdays 9–5 in `America/New_York`, with two hours' notice. New York DST is handled. Competing confirmations cannot reserve the same slot. Staff can cancel a reservation to release the slot.
+- Thirty-minute consultations reserve a shared team calendar, weekdays 9–5 in `America/New_York`, with two hours' notice. New York DST is handled. Competing confirmations cannot reserve the same slot. Each reservation also creates one conflict-review task and remains marked as requiring review; reservation is not conflict clearance or case acceptance. Staff can cancel a reservation to release the slot.
 - Case updates come only from the separate attorney-approved client update collection. The caller must receive a one-time code at the matter's registered contact. Codes expire after five minutes, are hashed in memory, consumed after use and limited per matter. Missing delivery configuration fails closed. The browser-only preview instead labels its fixed code as fictional.
-- English, Spanish, Urdu, Hindi, Punjabi and Arabic text flows. Local female English, Spanish and Hindi speech samples were generated. English was successfully transcribed back through faster-whisper. Native-speaker quality and real telephone audio have not been evaluated. Urdu, Punjabi and Arabic remain text-only on the local service.
-- Microphone turns are transcribed locally; each recording is discarded after transcription. The browser has separate record and read-response controls. This is turn-taking, not interruptible full-duplex speech.
+- English, Spanish, Urdu, Hindi, Punjabi and Arabic text flows. English, Spanish, Hindi, Urdu and Arabic have 80 local recordings for the existing fixed reception responses, with audio-synchronized mouth motion and generated facial/head/upper-body movement. Urdu uses an explicit pronunciation script with a Hindi-capable synthetic voice; this is fixed Urdu phrase support, not a general Urdu speech engine. Punjabi has no bundled voice. Missing voices never substitute English. Native-speaker acceptance and real telephone audio remain to be evaluated.
+- Maya remembers the chosen language. Warm, attentive, concerned, focused and reassuring expressions follow the conversation step and explicit conversational cues. A brief amused reaction is reserved for an explicit lighthearted cue; distress takes priority. Longer or faster spoken turns receive a more measured delivery. These controls do not diagnose emotions from the caller's voice. Motion can be paused and respects reduced-motion preferences. See [animation setup](../voice/README.md) and [asset evidence](../evidence/MAYA_AVATAR.md).
+- In the private workspace, **Start voice conversation** enables continuous listening with permission. Local voice-activity detection stops playback at the start of a caller's turn, retains a short opening buffer and submits after a pause. Browser echo cancellation and noise suppression are requested. Short noise bursts are filtered. A delayed reply cannot restart speech over an interruption; typing and Stop voice also cancel it. Multilingual wait/repeat commands preserve the current intake question.
+- Completed microphone turns are transcribed by the local service in the selected language; temporary recordings are removed. This remains segmented transcription and scripted reception, not a demonstrated streaming telephone system. Physical microphone/speaker echo behavior and real-call latency require device testing. The hosted static preview has no private transcription service; live voice conversations run through the local meeting launcher or a configured private deployment.
 - Hermes actually discovered all three reception MCP tools and created a confirmed callback through its tool dispatcher in a temporary fictional workspace. This validates the tool integration, not a live LLM-driven conversation.
 
 ## Local voice
@@ -20,9 +22,9 @@ Use Python 3.11 in an isolated virtual environment, install `voice/requirements.
 python voice/service.py
 ```
 
-Set `VOICE_SERVICE_URL=http://127.0.0.1:8765` in the Node application's private environment, restart `npm start`, and open Maya. For a private network service, set the same `VOICE_SERVICE_TOKEN` in both processes. Model downloads happen on first use; cache and warm them before a demonstration. CPU inference works on the tested machine; peak traffic and telephone latency are not benchmarked.
+Set `VOICE_SERVICE_URL=http://127.0.0.1:8765` in the Node application's private environment, restart `npm start`, and open Maya. For a private network service, set the same `VOICE_SERVICE_TOKEN` in both processes. The default `VOICE_ENGINE=fixed` plays the exact bundled voice and transcribes microphone turns locally. It does not substitute a generic system voice. Transcription models download on first use; cache them before a demonstration. Peak traffic and telephone latency are not benchmarked.
 
-Generate the sample again with `python voice/make-sample.py`. Run `python voice/check-speech.py` to generate Spanish/Hindi samples and check the English STT round trip. This downloads models. Keep `HF_HOME` outside tracked source. The model and Python libraries have their own open-source licences.
+`voice/make-sample.py` and `voice/check-speech.py` use the current cached greetings. To rebuild the designed voice, or enable optional dynamic English/Spanish speech, follow [the voice setup](../voice/README.md). Urdu recordings use explicit phonetic scripts and require native-speaker acceptance. Keep model caches outside tracked source. The model and Python libraries have their own open-source licences.
 
 For a Linux VPS, `compose.voice.yaml` adds a private speech container and persistent model cache:
 

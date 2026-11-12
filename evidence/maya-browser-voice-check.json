@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-12",
+  "environment": "Local meeting workspace in the desktop in-app browser",
+  "input": "Synthetic English greeting through an in-memory audio stream",
+  "physical_microphone_accessed": false,
+  "checks": {
+    "audio_worklet_loaded_under_site_policy": true,
+    "caller_speech_stopped_playback_before_transcription": true,
+    "further_speech_kept_maya_quiet": true,
+    "local_transcription_returned_expected_firm_greeting": true,
+    "voice_input_released_at_test_end": true
+  },
+  "screenshot": "maya-browser-interruption-check.jpg",
+  "limits": "This does not validate physical microphone/speaker echo cancellation, telephone routing or real-call latency."
+}

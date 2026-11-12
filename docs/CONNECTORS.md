@@ -8,7 +8,7 @@ Nothing in this registry implies an account was connected. Secrets belong in ser
 |---|---|---|
 | Local workspace HTTP API | Implemented and tested | `npm start` |
 | Read-only stdio MCP | Implemented and tested | `node mcp-server.mjs`; optional `DATA_DIR` |
-| OpenAI-compatible model gateway | Implemented; no live provider credentials tested | `MODEL_BASE_URL`, `MODEL_NAME`, `MODEL_API_KEY`; local flag for Ollama |
+| OpenAI-compatible model gateway | Implemented; live selected-matter drafting verified November 12, 2026 | `MODEL_BASE_URL`, `MODEL_NAME`, `MODEL_API_KEY`; local flag for Ollama |
 | NVIDIA chat proxy | Implemented; not validated against a running service | `AUTO_ONTOLOGY_URL`, `AUTO_ONTOLOGY_TOKEN` |
 | Official feed snapshots | Implemented; default has no active feeds | `LAW_FEED_URLS`, `LAW_POLL_MINUTES` |
 | File upload and export | Implemented and tested | Local server / browser limits differ |
@@ -27,16 +27,16 @@ Example MCP client configuration (replace absolute path for the target machine):
 }
 ```
 
-Available tools: `search_matters`, `get_matter`, `list_open_tasks`, `list_research_sources`. No write/send/file/payment tools exist. Local process access is the trust boundary. Do not expose this stdio process through an unauthenticated network bridge.
+Available tools: `search_matters`, `get_matter`, `list_open_tasks`, `list_research_sources`, `get_firm_brief`. No write/send/file/payment tools exist. Local process access is the trust boundary. Do not expose this stdio process through an unauthenticated network bridge.
 
 ## Required integrations by function
 
 | Function | Candidate open-source component / interface | Remaining work |
 |---|---|---|
-| Agent orchestration | NousResearch/hermes-agent | Configure supported model, matter-scoped tool list, approval boundaries, job ownership |
+| Agent orchestration | NousResearch/hermes-agent | Live two-call drafting verified with a selected-matter-only MCP tool and retrieval receipt; scheduling and write tools remain separate |
 | Durable jobs | temporalio/temporal | Activities, retries, idempotency, cancellation and operational monitoring |
 | Local assistant | open-jarvis/OpenJarvis | Evaluate hardware and provider setup; do not equate it with telephony |
-| Voice / multilingual reception | pipecat-ai/pipecat, SYSTRAN/faster-whisper, OHF-Voice/piper1-gpl | Streaming pipeline, language QA, consent, escalation, call recordings policy |
+| Voice / multilingual reception | QwenLM/Qwen3-TTS, resemble-ai/chatterbox (archived), SYSTRAN/faster-whisper; streaming transport still to choose | Fixed generated responses work locally; real-time streaming, native-speaker QA, escalation and telephone latency remain separate |
 | SIP / phones | asterisk/asterisk | Carrier account, numbers, routing, emergency handling and transfer tests |
 | Ontology | NVIDIA/auto-ontology | Structured source DB, compilation, certification, user-scoped API/MCP |
 | Mail/calendar | Microsoft Graph or Google Workspace APIs | OAuth app registration, scopes, event sync, mailbox mapping and delivery receipts |
