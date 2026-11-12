@@ -28,7 +28,7 @@ test('calendar uses New York hours across spring and autumn daylight-saving chan
  for(const [now,expected]of [['2026-03-06T23:00:00Z','2026-03-09T13:00:00.000Z'],['2026-10-30T23:00:00Z','2026-11-02T14:00:00.000Z']])assert.equal(slots({appointments:[]},Date.parse(now))[0].id,expected);
 });
 test('unverified case status does not reveal notes or the approved update',async()=>{
- const f=fixture(),s=f.service.start();await f.service.send(s.sessionId,{action:'status'});const challenge=await f.service.send(s.sessionId,{text:'ML-2601'});assert.equal(challenge.demoCode,undefined);const reply=await f.service.send(s.sessionId,{text:'314159'});assert.equal(reply.source,undefined);assert.ok(!reply.text.includes(f.state.clientUpdates[0].text));
+ const f=fixture(),s=f.service.start('__proto__');assert.equal(s.language,'en');await f.service.send(s.sessionId,{action:'status'});const challenge=await f.service.send(s.sessionId,{text:'ML-2601'});assert.equal(challenge.demoCode,undefined);const reply=await f.service.send(s.sessionId,{text:'314159'});assert.equal(reply.source,undefined);assert.ok(!reply.text.includes(f.state.clientUpdates[0].text));
 });
 test('HTTP verification uses registered contact, consumes code, and bridge token cannot read workspace',async()=>{
  const dir=await mkdtemp(join(tmpdir(),'mlaw-reception-'));let delivered;
@@ -44,6 +44,8 @@ test('HTTP verification uses registered contact, consumes code, and bridge token
   const update=await turn(delivered.code);assert.equal(update.source.id,seed.clientUpdates[0].id);assert.equal(update.text,seed.clientUpdates[0].text);assert.equal(update.matters,undefined);
   assert.equal((await turn(delivered.code)).source,undefined);
   assert.equal((await fetch(base+'/api/state',{headers})).status,401);
+  // Preserve the raw path: fetch normalizes dot segments before sending them.
+  const escapedStatus=await new Promise((resolve,reject)=>{const req=http.request({hostname:'127.0.0.1',port,path:'/api/reception/%2e%2e/state',headers},res=>{res.resume();resolve(res.statusCode)});req.on('error',reject);req.end();});assert.equal(escapedStatus,401);
   assert.equal((await post('speech',{text:'Hello',language:'en'})).status,503);
   const wrong=await fetch(base+'/api/reception/start',{method:'POST',headers:{Authorization:'Bearer wrong'},body:'{}'});assert.equal(wrong.status,401);
  }finally{p.kill();if(p.exitCode===null)await once(p,'exit');await new Promise(resolve=>delivery.close(resolve));await rm(dir,{recursive:true,force:true});}
