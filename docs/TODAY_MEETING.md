@@ -2,6 +2,8 @@
 
 ## Open the presentation
 
+**Taking a different laptop:** open https://mlaw-next-prototype.saad-muhayyo-3437.chatgpt.site/demo.html in a normal browser, sign in with the owning ChatGPT account, and follow the exact entries and expected outcomes. The guide links to the people/agent responsibility map and researched subscription replacement plan. Use **Start here · onboarding → Start the walkthrough** to add the fictional case and clearly labeled recorded drafting sample to that browser. Live local drafting and microphone service do not transfer to the laptop. New browser records do not synchronize with the original computer.
+
 Print the [one-page meeting guide](../output/pdf/M_Law_Meeting_Guide.pdf) for the walkthrough and decisions to record.
 
 **Today's live demonstration:** http://127.0.0.1:3333/#os/approvals — use this on the computer running the meeting workspace. Open **Live intake summary and Spanish follow-up — Taylor Example** to show the verified generated work immediately. The live model and local voice service are connected; leave the existing meeting launch window running.
