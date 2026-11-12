@@ -1,0 +1,18 @@
+# docker compose -f compose.yaml -f compose.voice.yaml up -d --build
+services:
+  app:
+    environment:
+      VOICE_SERVICE_URL: http://voice:8765
+  voice:
+    build:
+      context: .
+      dockerfile: voice/Dockerfile
+    restart: unless-stopped
+    environment:
+      VOICE_SERVICE_TOKEN: ${VOICE_SERVICE_TOKEN:?Set the same private token for app and voice}
+      WHISPER_MODEL: small
+    volumes: [voice-models:/models]
+    networks: [mlaw]
+    expose: ['8765']
+volumes:
+  voice-models:

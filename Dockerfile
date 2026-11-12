@@ -1,6 +1,6 @@
 FROM node:24.22.1-alpine
 WORKDIR /app
-COPY package.json server.mjs mcp-server.mjs ./
+COPY package.json server.mjs mcp-server.mjs reception-mcp.mjs ./
 COPY lib ./lib
 COPY dist ./dist
 COPY scripts ./scripts

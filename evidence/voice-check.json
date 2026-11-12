@@ -1,0 +1,14 @@
+{
+  "es": {
+    "bytes": 352844,
+    "generated": true
+  },
+  "hi": {
+    "bytes": 445244,
+    "generated": true
+  },
+  "english_roundtrip": {
+    "language": "en",
+    "text": " Hello, I'm Maya, your AI receptionist at EmLaw.  I'm here to listen and help you take the next step.  I can arrange a consultation, pass a message to your legal team,  or help you request an approved case update.  Take your time. How may I help you today?"
+  }
+}

@@ -6,3 +6,9 @@ exports
 evidence
 tests
 node_modules
+
+.research
+.voice-*
+.hermes-*
+*.log
+**/__pycache__

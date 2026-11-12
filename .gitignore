@@ -11,3 +11,17 @@ exports/
 *.sqlite*
 evidence/raw/
 test-results/
+
+.voice-venv/
+.voice-cache/
+.hermes-runtime/
+.voice-cache-sample.log
+.hermes-venv/
+__pycache__/
+.hermes-stable-venv/
+.hermes-install.log
+.voice-check.log
+.uv-install.log
+
+.hermes-verified-venv/
+.hermes-check.log

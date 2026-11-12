@@ -29,7 +29,7 @@ The private Sites preview serves `dist/` and uses browser-local storage. It has 
 4. Create an editable draft in **Documents & files**, upload a sample source file, save changes and download text or print to PDF.
 5. Prepare a workflow in **Agents & workflows**. It creates linked work product, an attorney task and a review-queue entry.
 6. View relationships in **Matter intelligence**. Record an expense or time entry; export tasks as ICS and expenses as CSV.
-7. Try the six-language concierge. Without a configured model it uses scripted responses. Device text-to-speech is optional and device-dependent.
+7. Open **Maya · reception**. Capture a lead, reserve a consultation, request a callback, or try verified client updates. Listen to generated female voice samples. See [reception setup](docs/RECEPTION.md) for local speech, Hermes and the telephone test adapter.
 
 ## What works and what remains
 
@@ -38,16 +38,16 @@ The private Sites preview serves `dist/` and uses browser-local storage. It has 
 | Website | Responsive editorial layout, local motion video, perspective sculpture, motion control | Firm approval, final media and accessibility audit |
 | Intake / CRM | Persistent matters, stage changes, search, task creation | Conflict database, duplicate resolution, engagement workflow |
 | Contacts | Matter-linked clients, providers and insurers | Normalized global contact directory, shared contacts, merge workflow |
-| Tasks / calendar | Manual dates, owners, completion, ICS export | Mail/calendar OAuth, rules engine, court verification |
+| Tasks / calendar | Manual tasks, owners, completion, ICS export; confirmed consultation reservations with collision checks | Attorney-specific availability, holidays, reminders, court deadline verification |
 | Drafting | Six templates, copilot adapter, edits, text download, print/PDF | Validated court templates, DOCX assembly, citation checking, signatures |
 | Files | Local upload/download, matter metadata | OCR, versioning, malware scan, encryption, granular permissions |
-| Communications | Draft queue, fictional portal preview, intake concierge | Actual secure portal, delivery adapters, consent and identity checks |
+| Communications | Draft queue, callbacks, approved client updates with one-time-code verification, SMTP delivery adapter | Live mail configuration, secure client accounts, consent and identity hardening |
 | Finance | Case expenses, time records, CSV export | Double-entry books, trust accounting, reconciliation, payroll, tax and payments |
 | Intelligence | Explicit graph from entered records, relational staging export | NVIDIA deployment, ingestion, semantic compilation and certification |
-| Workflows | Deterministic preparation with linked review tasks | Hermes runtime, durable execution, retry and exception handling |
+| Workflows | Linked review tasks; installed Hermes runtime tested against reception tools | Live model configuration, durable execution, retry and exception handling |
 | Legal updates | Allowlisted feed-snapshot collector, hash-based changes, configurable interval | Official feed selection, article parsing, relevance and legal-change review |
-| MCP | Four read-only tools over local records | Per-user identity, scopes, audit and production tool authorization |
-| Voice | Device read-aloud demo | Pipecat/Whisper/Piper, SIP, interruptions, language QA and human escalation |
+| MCP | Four read-only workspace tools plus three functional reception tools; Hermes discovery and callback tested | Per-user identity, scopes and production authorization |
+| Voice | Local Kokoro female en/es/hi samples, faster-whisper, browser voice turns, Asterisk test adapter | Carrier connection, real calls, full-duplex interruptions, native-speaker QA and escalation |
 
 No action sends messages, signs documents, accepts representation, files with a court, moves money or changes legal deadlines. No claim is made that drafted documents are accurate or ready for filing.
 
@@ -61,7 +61,7 @@ MODEL_NAME=deepseek-flash
 MODEL_API_KEY=your_private_key
 ```
 
-The documented API alias `deepseek-flash` currently serves DeepSeek V4.1 Flash. Verify it before deployment. Keys stay on the server. Model API use is metered; no key or paid account was provisioned. No silent provider fallback is used. The concierge sends the conversation only; the attorney copilot sends the selected matter plus linked draft text and file metadata. Enable remote inference only after the firm approves its data handling.
+The documented API alias `deepseek-flash` currently serves DeepSeek V4.1 Flash. Verify it before deployment. Keys stay on the server. Model API use is metered; no key or paid account was provisioned. No silent provider fallback is used. The legacy model chat endpoint sends the conversation only; Maya’s structured reception does not require a model; the attorney copilot sends the selected matter plus linked draft text and file metadata. Enable remote inference only after the firm approves its data handling.
 
 For local inference, install a suitable model in Ollama, set `MODEL_BASE_URL=http://127.0.0.1:11434/v1`, set its installed model name, and set `MODEL_LOCAL=true`. Local model hardware and language quality must be assessed.
 

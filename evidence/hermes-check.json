@@ -1,0 +1,10 @@
+{
+  "registered": [
+    "mcp__mlaw_reception__start_reception",
+    "mcp__mlaw_reception__reception_turn",
+    "mcp__mlaw_reception__reception_queue"
+  ],
+  "confirmed_callback_created": true,
+  "queue_count": 1,
+  "model_inference_tested": false
+}

@@ -1,0 +1,15 @@
+# Merge into the dedicated firm Hermes profile, replacing the absolute paths.
+# Use a private machine/VPS; this profile has staff access to fictional demo data.
+mcp_servers:
+  mlaw_workspace:
+    command: node
+    args: ["/opt/mlaw/mcp-server.mjs"]
+    env:
+      DATA_DIR: /opt/mlaw/.data
+  mlaw_reception:
+    command: node
+    args: ["/opt/mlaw/reception-mcp.mjs"]
+    env:
+      DATA_DIR: /opt/mlaw/.data
+# Configure inference using Hermes setup, with local Ollama or an explicitly
+# selected provider/model. There is no bundled API key or silent paid fallback.
