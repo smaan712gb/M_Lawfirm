@@ -6,7 +6,7 @@
       "type": "Vehicle accidents",
       "stage": "Discovery",
       "owner": "Adnan Munawar",
-      "language": "EspaÃ±ol",
+      "language": "Español",
       "email": "elena@example.test",
       "phone": "212-555-0101",
       "incident": "2026-08-14",
@@ -21,7 +21,7 @@
       "type": "Construction accidents",
       "stage": "Investigation",
       "owner": "Junior attorney",
-      "language": "Ø§Ø±Ø¯Ùˆ",
+      "language": "اردو",
       "email": "omar@example.test",
       "phone": "212-555-0102",
       "incident": "2026-09-03",
@@ -51,7 +51,7 @@
       "type": "Vehicle accidents",
       "stage": "Intake",
       "owner": "Unassigned",
-      "language": "EspaÃ±ol",
+      "language": "Español",
       "email": "sofia@example.test",
       "phone": "212-555-0104",
       "incident": "2026-11-05",
@@ -164,5 +164,9 @@
         "es": "Su equipo legal ha solicitado los registros médicos. No hay una cita ni audiencia confirmada en este ejemplo ficticio."
       }
     }
-  ]
+  ],
+  "onboarding": [],
+  "imports": [],
+  "approvals": [],
+  "subscriptions": []
 }

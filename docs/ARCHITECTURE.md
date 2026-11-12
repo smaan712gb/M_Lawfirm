@@ -16,7 +16,9 @@ flowchart LR
 
 The static preview uses browser storage in place of the API. SQLite stores a revisioned workspace document. Optimistic revision checks reject stale writes. This is a small prototype persistence model, not the normalized relational data model intended for a multi-user firm.
 
-The Node service restricts hosts, blocks cross-origin writes, caps request sizes, serves uploads as attachments, rate limits model requests, and requires a shared password when exposed to a network. The audit trail is editable workspace data, not a tamper-evident compliance log. There is no production user or role separation yet.
+The Node service restricts hosts, blocks cross-origin writes, caps request sizes, serves uploads as attachments, and rate limits model and login requests. Optional account mode adds salted password hashes, expiring sessions, CSRF tokens, four role profiles and a separate server-recorded access-event table. Network account mode requires users and HTTPS configuration. Demo mode can use the shared review password. Roles cover workspace capabilities, not matter-level confidentiality walls. Neither the workspace audit nor the separate event database is a tamper-evident compliance log.
+
+CSV imports require mapping, validation, an unexpired preview tied to the current workspace revision, and explicit confirmation. Internal attorney review records bind the document version by a content fingerprint; changed drafts cannot receive a stale acknowledgement. These acknowledgements never trigger external delivery. Encrypted portable backups include the workspace and linked file checksums, and can be restored only into a new directory. Accounts, credentials and operational configuration are intentionally excluded. See [pilot setup](PILOT_SETUP.md) for tested controls and remaining boundaries.
 
 ## Target architecture
 

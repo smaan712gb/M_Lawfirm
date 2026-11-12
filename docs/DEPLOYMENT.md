@@ -8,9 +8,9 @@ Hostinger’s Docker VPS template supports Docker Compose. These files target th
 4. Optionally configure a model endpoint. Leave remote keys and feeds unset for a self-contained demo.
 5. Run `docker compose config --quiet`, then `docker compose up -d --build`.
 6. Visit the configured HTTPS domain and sign in. Verify intake persistence, uploads, exports and restart recovery using fictional data.
-7. Back up both the SQLite database and uploaded files from `mlaw-data`. Stop writes during consistent backups, or use SQLite’s backup mechanism plus a file inventory. Test restoration in another isolated environment.
+7. Use the encrypted backup and inspection controls under **Start here · onboarding → Readiness & backup**. Test recovery into a new isolated directory using `Restore-Backup.ps1` or the backup CLI. Account records and deployment secrets need a separate protected recovery plan; see [pilot setup](PILOT_SETUP.md).
 
-No live data should enter this prototype. Before production: separate public/private services, implement per-user SSO/MFA, normalized access-controlled storage, immutable audit, encrypted secrets and backups, malware scanning, monitoring, retention, session control, external-delivery approvals and independent security review. The shared password is not a production identity system.
+The steps above use the shared review password. Named accounts are also available; follow [pilot setup](PILOT_SETUP.md) before enabling `AUTH_MODE=accounts`. No live data should enter this prototype. Before production: separate public/private services, add MFA and matter-level access control, normalized storage, tamper-evident audit, protected secrets, malware scanning, monitoring, retention, external-delivery approvals and independent security review. Existing session controls and encrypted backups require deployment-specific validation and recovery drills.
 
 The Docker image and Compose file are supplied but were not built or deployed to Hostinger in this session. Validate current image availability and pin image digests as part of deployment. Caddy requires inbound ports 80/443 for automatic HTTPS; the app port is private to the Docker network.
 

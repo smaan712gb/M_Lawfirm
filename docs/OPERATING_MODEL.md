@@ -18,7 +18,7 @@ The connected prototype is the first slice of a larger operating system. “Repl
 | Finance | Accounting and case costs | Expenses, time, billing, settlement statements, trust reconciliation | Expenses/time only; no ledger or money movement |
 | People / operations | HR, leave, procurement, vendor management | Role assignments, vendor contracts, onboarding/offboarding | Not implemented; ERPNext candidate |
 | Reporting | Firm analytics and conversion | Intake conversion, workload, aging, source completeness, outcomes | Live counts from demo records |
-| IT / continuity | Identity, backup, security monitoring | MFA, permissions, retention, audit, restore, incident response | Basic prototype controls only |
+| IT / continuity | Identity, backup, security monitoring | MFA, permissions, retention, audit, restore, incident response | Named accounts, role restrictions, encrypted backup and new-directory recovery; production hardening remains |
 
 ## End-to-end workflow design
 

@@ -25,3 +25,6 @@ __pycache__/
 
 .hermes-verified-venv/
 .hermes-check.log
+.meeting-data/
+.pilot-data/
+*.mlawbackup

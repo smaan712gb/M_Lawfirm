@@ -2,6 +2,8 @@
 
 A working, private-review prototype for Munawar Law Group: a cinematic landing page and one connected firm workspace. Built November 12, 2026. **Fictional records only. This is not a production legal system.**
 
+For the 1 pm meeting, double-click **Start Meeting.cmd**. It opens an isolated demonstration workspace and starts installed local speech components. See [today's walkthrough](docs/TODAY_MEETING.md), [private pilot setup](docs/PILOT_SETUP.md), and [blueprint reconciliation](docs/BLUEPRINT_RECONCILIATION.md). The firm-facing screens use M Law feature names; underlying technology is documented here for maintainers.
+
 ## Run locally
 
 Requires Node.js 24.15 or later. The application has no third-party runtime JavaScript dependencies.
@@ -27,7 +29,7 @@ The private Sites preview serves `dist/` and uses browser-local storage. It has 
 2. In **Matters & intake**, search the pipeline, open the matter and edit stage, owner, provider and insurer.
 3. Open **Attorney copilot**. Ask about the selected matter. Without a configured model, it produces an explicitly labeled structured inspection; with a model it requests a source-constrained review response.
 4. Create an editable draft in **Documents & files**, upload a sample source file, save changes and download text or print to PDF.
-5. Prepare a workflow in **Agents & workflows**. It creates linked work product, an attorney task and a review-queue entry.
+5. Prepare a workflow in **Case preparation**. It creates linked work product, an attorney task and a review-queue entry. Use **Attorney review** to request a version-bound internal acknowledgement.
 6. View relationships in **Matter intelligence**. Record an expense or time entry; export tasks as ICS and expenses as CSV.
 7. Open **Maya · reception**. Capture a lead, reserve a consultation, request a callback, or try verified client updates. Listen to generated female voice samples. See [reception setup](docs/RECEPTION.md) for local speech, Hermes and the telephone test adapter.
 
@@ -37,6 +39,8 @@ The private Sites preview serves `dist/` and uses browser-local storage. It has 
 |---|---|---|
 | Website | Responsive editorial layout, local motion video, perspective sculpture, motion control | Firm approval, final media and accessibility audit |
 | Intake / CRM | Persistent matters, stage changes, search, task creation | Conflict database, duplicate resolution, engagement workflow |
+| Onboarding | Reviewed CSV mapping/import, duplicate-ID skipping, meeting plan and software inventory | Firm-specific export adapters, reconciliation and approved migration |
+| Access / continuity | Named accounts, four role profiles, session expiry, CSRF protection, encrypted backup and recovery into a new directory | MFA, matter-level walls, independent security review, operational recovery drills |
 | Contacts | Matter-linked clients, providers and insurers | Normalized global contact directory, shared contacts, merge workflow |
 | Tasks / calendar | Manual tasks, owners, completion, ICS export; confirmed consultation reservations with collision checks | Attorney-specific availability, holidays, reminders, court deadline verification |
 | Drafting | Six templates, copilot adapter, edits, text download, print/PDF | Validated court templates, DOCX assembly, citation checking, signatures |
@@ -67,7 +71,7 @@ For local inference, install a suitable model in Ollama, set `MODEL_BASE_URL=htt
 
 ## Hostinger VPS
 
-See [deployment guide](docs/DEPLOYMENT.md). Docker Compose and Caddy configuration are provided. No Hostinger account or server was accessed or purchased. The application refuses non-loopback exposure without a workspace password. This shared-password deployment is suitable only for restricted prototype review; production needs SSO, MFA and matter-level authorization.
+See [deployment guide](docs/DEPLOYMENT.md). Docker Compose and Caddy configuration are provided. No Hostinger account or server was accessed or purchased. Non-loopback exposure requires either the prototype workspace password or account mode with existing users and HTTPS configured. Named staff accounts now work for a controlled pilot; production still needs MFA, matter-level authorization and deployment validation.
 
 ## Stack and evidence
 
