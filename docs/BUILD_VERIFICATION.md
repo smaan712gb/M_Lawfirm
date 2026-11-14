@@ -19,6 +19,7 @@ The incoming developer should use `main` including this handoff, not the old exp
 | Runtime | Node v24.15.0 on Windows |
 | `node scripts/check.mjs` (`npm run check`) | Passed; 36 JavaScript scripts checked and firm-facing branding check passed |
 | `node --test tests/*.test.mjs` (`npm test`) | 28 passed, 0 failed, 0 skipped |
+| Clean tracked-source export, without local environments or data | Repeated syntax/branding check passed; all 28 tests passed with Node v24.15.0 |
 | New application commit text scan | 272 text-blob examinations across two commits; no matches for the selected private-key, provider-key, GitHub-token, AWS-key or credential-URL patterns |
 | Tracked sensitive-path check | No `.env`, local secrets, workspace data directories or SQLite databases in the tracked set |
 | Eight `mlaw-*.tar.gz` package inventories | All application file paths already represented in the current tracked tree; only archive-only path was `dist/.openai/hosting.json`, Sites packaging metadata |

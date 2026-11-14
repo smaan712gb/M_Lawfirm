@@ -49,6 +49,33 @@ On Windows, `Start Meeting.cmd` selects the isolated `.meeting-data/` demonstrat
 
 The static Sites preview uses browser storage and has no shared database, private model key or private transcription service. Its records do not synchronize with the Node server. Local Node records live under `DATA_DIR` (default `.data/`).
 
+## WordPress coordination - new owner information
+
+On November 14, Saad reported that the developer is building in WordPress. The developer's actual scope, theme/plugins, hosting and implementation have not been inspected. No WordPress conversion of this application has been performed.
+
+WordPress is a content-management platform for pages, posts, media, themes and plugins. It can be extended and connected to other applications through APIs. See its [official features](https://wordpress.org/about/features/) and [REST API handbook](https://developer.wordpress.org/rest-api/).
+
+Recommended division, subject to agreement with the developer and firm:
+
+| Responsibility | Proposed owner |
+|---|---|
+| Public pages, attorney biographies, practice areas, articles and editable marketing content | WordPress website |
+| Private staff workspace, matters, internal review and drafting | Existing application, hardened through the backlog below |
+| Maya interaction and reception records | Explicitly designed integration with the application/reception service; choose an embed or API implementation after access review |
+| Intake handoff | Validated server-side integration with a single system of record, consent, duplicate prevention and delivery receipts |
+
+This is an architecture recommendation, not a statement that WordPress cannot support custom applications. Replacing the current workspace with WordPress would be a separate implementation/migration decision requiring a capability-by-capability plan and acceptance tests. Do not equate completion of a WordPress marketing site with completion of the firm operating system.
+
+Before implementation, confirm with the developer:
+
+1. Is their scope the public website, or also the staff workspace, Maya, case workflows and AI drafting?
+2. Which existing source/assets and behavior will be retained, ported or replaced, and how will parity be demonstrated?
+3. Where will the Node server and optional Python services run? A PHP-only WordPress hosting environment does not itself supply these runtimes.
+4. Which system owns intake records, identities, documents and appointments, and how are authorization and synchronization enforced?
+5. Which plugins/services introduce fees, client-data processing or maintenance obligations, and who owns their updates, backups and licences?
+
+Do not place private model/service tokens in a WordPress theme, browser bundle or publicly reachable endpoint. The current API's host/origin/auth controls need an intentional integration design; removing those checks to make a cross-site widget work is not an acceptable integration plan. Public-facing intake must not expose staff or matter APIs.
+
 ## What is actually implemented
 
 - Connected matters, intake, contacts within matters, tasks, editable drafts, file uploads, time/expense records and CSV/ICS exports.
