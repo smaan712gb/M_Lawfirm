@@ -2,6 +2,10 @@
 
 A working, private-review prototype for Munawar Law Group: a cinematic landing page and one connected firm workspace. Built November 12, 2026. **Fictional records only. This is not a production legal system.**
 
+**Developer start here:** [handoff and prioritized remaining work](docs/DEVELOPER_HANDOFF.md), [build synchronization and verification](docs/BUILD_VERIFICATION.md). Updated November 14, 2026; the handoff distinguishes a fresh checkout from the original demonstration machine. The editable frontend and shipped media are in `dist/`; no frontend bundler is required.
+
+Remaining implementation and acceptance work is tracked in [GitHub issue #1](https://github.com/smaan712gb/M_Lawfirm/issues/1).
+
 For the 1 pm meeting, double-click **Start Meeting.cmd**. It opens an isolated demonstration workspace and starts installed local speech components. See [today's walkthrough](docs/TODAY_MEETING.md), [private pilot setup](docs/PILOT_SETUP.md), and [blueprint reconciliation](docs/BLUEPRINT_RECONCILIATION.md). The firm-facing screens use M Law feature names; underlying technology is documented here for maintainers.
 
 ## Run locally
@@ -53,7 +57,7 @@ The private Sites preview serves `dist/` and uses browser-local storage. It has 
 | MCP | Five read-only workspace tools plus three functional reception tools; Hermes discovery and callback tested | Per-user identity, scopes and production authorization |
 | Voice | Eighty fixed spoken responses in English, Spanish, Urdu, Hindi and Arabic; synchronized portrait clips; local transcription with browser interruption detection; telephone test adapter | Carrier connection, physical microphone/echo acceptance, real calls, native-speaker QA and escalation |
 
-No action sends messages, signs documents, accepts representation, files with a court, moves money or changes legal deadlines. No claim is made that drafted documents are accurate or ready for filing.
+Internal review does not send drafts, sign documents, accept representation, file with a court, move money or change legal deadlines. A separately configured verification-mail adapter can deliver one-time codes. No claim is made that drafted documents are accurate or ready for filing.
 
 ## Model setup
 
